@@ -4,21 +4,94 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
+
+    <title>EscapePlan</title>
+
 </head>
 <body>
+    <header>
+        <div class="innerContainer">
+            <nav class="flexBox twoCol">
+                <a href="index.html" class="logo">EscapePlan</a>
+                <ul class="flexBox">
+                    <li><a href="/login"> Packing List</a></li>
+                    <li><a href="/signup"> Itinerary</a></li>
+                    <li><a href="/signup"> Budget</a></li>
+                </ul>
+            </nav>
+    </header>
+    <section class="innerContainer">
+        <div class="hero">
+            <h1><%= user.userName %>'s Packing List</h1>
+            <p>Create a list of everything you need for your trip! We already put on some essentials for you.</p>
+        </div>
+        <div class="flexBox twoCol gap2">
+            <div class="card">
+                <h3>Carry-On Luggage</h3>
+                <p>There are <strong><%= left %></strong> things left to pack!</p>
+                <ul>
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                <span class='del'> Delete </span>
+                            </li>
+                    <% }) %>    
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Checked Luggage</h3>
+                <p><%= user.userName %> has <%= left %> things left to pack.</p>
+                <ul>
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                <span class='del'> Delete </span>
+                            </li>
+                    <% }) %>    
+                </ul>
+            </div>
+        </div>
+        <div class="flexBox twoCol gap2">
+            <div class="card">
+                <h3>Carry-On Luggage</h3>
+                <p>There are <strong><%= left %></strong> things left to pack!</p>
+                <ul>
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                <span class='del'> Delete </span>
+                            </li>
+                    <% }) %>    
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Checked Luggage</h3>
+                <p><%= user.userName %> has <%= left %> things left to pack.</p>
+                <ul>
+                    <% todos.forEach( el => { %>
+                            <li class='todoItem' data-id='<%=el._id%>'>
+                                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                                <span class='del'> Delete </span>
+                            </li>
+                    <% }) %>    
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="innerContainer">
+       
+        
+        
+            
+    </section>
     <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
-
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+    
 
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
