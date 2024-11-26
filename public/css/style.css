@@ -216,8 +216,8 @@ Modules
 		text-align: center;
 	}
 
-/*Form*/
-	input{
+/*Forms*/
+	input[type=email], input[type=password], input[type=text] {
 		width: 90%;
 		height: 40px;
 		margin: 10px;
@@ -234,6 +234,21 @@ Modules
 		color: white;
 		background-color: #fa6750;
 		border: 1px solid #fa6750;
+	}
+	input[type=checkbox]{
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+	}
+	input[type=text].appForm{
+		height: 40px;
+		width: 40%;
+	}
+	select.appForm{
+		height: 40px;
+		width: 40%;
+		margin: 10px;
+		padding: 1% 0;
 	}
 
 /*****************************************************************
